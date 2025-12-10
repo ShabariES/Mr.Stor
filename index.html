@@ -1,0 +1,1876 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mr.Stor | Tech Solutions & Digital Marketing</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* Professional Black & Orange Color Palette - Dark Theme */
+            --primary: #FF6B35;
+            --primary-dark: #E85C2A;
+            --primary-light: rgba(255, 107, 53, 0.1);
+            --primary-lighter: rgba(255, 107, 53, 0.05);
+            --primary-glass: rgba(255, 107, 53, 0.15);
+            
+            --secondary: #0A0A0A;
+            --secondary-light: #1A1A1A;
+            --secondary-lighter: #2A2A2A;
+            --secondary-dark: #000000;
+            
+            --accent: #FFB347;
+            --accent-dark: #FF8C00;
+            --accent-light: rgba(255, 179, 71, 0.1);
+            
+            /* Dark Theme Text Colors */
+            --text: #F9FAFB;
+            --text-light: #D1D5DB;
+            --text-on-dark: #F9FAFB;
+            --text-on-primary: #FFFFFF;
+            --text-secondary: #9CA3AF;
+            
+            /* Dark Theme Backgrounds */
+            --bg-primary: #0A0A0A;
+            --bg-secondary: #1A1A1A;
+            --bg-tertiary: #2A2A2A;
+            --bg-card: #1A1A1A;
+            --bg-card-hover: #2A2A2A;
+            
+            /* Glass effects */
+            --glass: rgba(26, 26, 26, 0.8);
+            --glass-light: rgba(255, 255, 255, 0.1);
+            --glass-border: rgba(255, 107, 53, 0.3);
+            
+            /* Shadows */
+            --shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            --shadow-lg: 0 10px 40px rgba(0, 0, 0, 0.5);
+            --shadow-xl: 0 20px 60px rgba(0, 0, 0, 0.6);
+            --shadow-orange: 0 8px 32px rgba(255, 107, 53, 0.3);
+            
+            /* Transitions */
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-slow: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            
+            /* Gradients */
+            --gradient: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            --gradient-dark: linear-gradient(135deg, var(--secondary) 0%, var(--secondary-dark) 100%);
+            --gradient-accent: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
+            --gradient-orange-black: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            --gradient-glass: linear-gradient(135deg, rgba(255, 107, 53, 0.1) 0%, rgba(10, 10, 10, 0.1) 100%);
+            --gradient-dark-card: linear-gradient(135deg, #1A1A1A 0%, #0A0A0A 100%);
+            
+            /* Border radius */
+            --border-radius: 12px;
+            --border-radius-lg: 20px;
+            --border-radius-xl: 30px;
+            
+            /* Borders */
+            --border: 1px solid rgba(255, 255, 255, 0.08);
+            --border-dark: 1px solid rgba(255, 255, 255, 0.1);
+            --border-orange: 1px solid rgba(255, 107, 53, 0.3);
+            --border-light: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background-color: var(--bg-primary);
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Enhanced Header & Navigation */
+        header {
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: var(--transition);
+            border-bottom: 1px solid rgba(255, 107, 53, 0.2);
+        }
+
+        header.scrolled {
+            background: rgba(10, 10, 10, 0.98);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+            padding: 5px 0;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            transition: var(--transition);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text);
+            text-decoration: none;
+            letter-spacing: -0.5px;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--gradient);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            box-shadow: var(--shadow-orange);
+            transition: var(--transition);
+        }
+
+        .logo:hover .logo-icon {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 107, 53, 0.4);
+        }
+
+        .logo span {
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-light);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: var(--transition);
+            position: relative;
+            padding: 8px 0;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 50%;
+            background: var(--gradient);
+            border-radius: 2px;
+            transition: var(--transition);
+            transform: translateX(-50%);
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-cta {
+            background: var(--gradient);
+            color: white;
+            padding: 10px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            box-shadow: var(--shadow-orange);
+            transition: var(--transition);
+            margin-left: 20px;
+            border: 1px solid transparent;
+        }
+
+        .nav-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 107, 53, 0.4);
+            background: transparent;
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        .mobile-menu {
+            display: none;
+            font-size: 1.3rem;
+            cursor: pointer;
+            color: var(--primary);
+            padding: 8px;
+            background: var(--primary-light);
+            border-radius: 8px;
+        }
+
+        /* Enhanced Hero Section - Dark */
+        .hero {
+            padding: 180px 0 120px;
+            background: var(--gradient-dark);
+            color: var(--text);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(255, 107, 53, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(0, 0, 0, 0.3) 0%, transparent 50%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 107, 53, 0.15);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 107, 53, 0.3);
+            color: var(--primary);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-weight: 500;
+            font-size: 0.9rem;
+            margin-bottom: 30px;
+            letter-spacing: 0.5px;
+        }
+
+        .hero h1 {
+            font-size: 3.2rem;
+            margin-bottom: 24px;
+            line-height: 1.1;
+            font-weight: 800;
+            letter-spacing: -1px;
+            color: var(--text);
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.7;
+            color: var(--text-light);
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 32px;
+            background: var(--gradient);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: var(--shadow-orange);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: 0.5s;
+        }
+
+        .btn:hover::before {
+            left: 100%;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(255, 107, 53, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            border: 1px solid rgba(255, 107, 53, 0.3);
+            color: var(--primary);
+            box-shadow: none;
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary-light);
+            border-color: var(--primary);
+            color: var(--text);
+        }
+
+        .btn-accent {
+            background: var(--gradient-accent);
+            box-shadow: 0 4px 12px rgba(255, 179, 71, 0.2);
+        }
+
+        .btn-accent:hover {
+            box-shadow: 0 8px 24px rgba(255, 179, 71, 0.3);
+        }
+
+        /* Enhanced Sections */
+        section {
+            padding: 100px 0;
+            background-color: var(--bg-primary);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 64px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--text);
+            margin-bottom: 16px;
+            position: relative;
+            display: inline-block;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 4px;
+            background: var(--gradient);
+            bottom: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        .section-title p {
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 24px auto 0;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        /* Enhanced About Section - Dark */
+        .about {
+            background: var(--bg-secondary);
+        }
+
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-text h3 {
+            font-size: 1.9rem;
+            margin-bottom: 20px;
+            color: var(--text);
+            font-weight: 700;
+            letter-spacing: -0.3px;
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+            color: var(--text-light);
+            font-size: 1.05rem;
+            line-height: 1.7;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin: 40px 0;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 24px;
+            background: var(--bg-tertiary);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .stat-item:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary);
+            background: var(--bg-card-hover);
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--primary);
+            display: block;
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+
+        .stat-label {
+            color: var(--text-light);
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        .about-image {
+            flex: 1;
+            border-radius: var(--border-radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            position: relative;
+            border: 2px solid rgba(255, 107, 53, 0.2);
+        }
+
+        .about-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--gradient);
+            opacity: 0.05;
+            z-index: 1;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: var(--transition);
+        }
+
+        .about-image:hover img {
+            transform: scale(1.03);
+        }
+
+        /* Enhanced Services Section - Dark */
+        .services {
+            background: var(--bg-primary);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: var(--bg-card);
+            border-radius: var(--border-radius);
+            padding: 32px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            text-align: left;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            height: 100%;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient);
+            transform: scaleX(0);
+            transition: var(--transition);
+        }
+
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-xl);
+            border-color: var(--primary);
+            background: var(--bg-card-hover);
+        }
+
+        .service-icon {
+            width: 64px;
+            height: 64px;
+            background: var(--primary-light);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+            transition: var(--transition);
+            border: 1px solid rgba(255, 107, 53, 0.2);
+        }
+
+        .service-card:hover .service-icon {
+            background: var(--gradient);
+            transform: translateY(-4px);
+            border-color: transparent;
+        }
+
+        .service-icon i {
+            font-size: 1.5rem;
+            color: var(--primary);
+            transition: var(--transition);
+        }
+
+        .service-card:hover .service-icon i {
+            color: white;
+        }
+
+        .service-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 16px;
+            color: var(--text);
+            font-weight: 600;
+        }
+
+        .service-card p {
+            color: var(--text-light);
+            margin-bottom: 20px;
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        .service-link {
+            color: var(--primary);
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: var(--transition);
+            font-size: 0.9rem;
+        }
+
+        .service-link:hover {
+            gap: 12px;
+            color: var(--accent);
+        }
+
+        /* Enhanced Testimonials - Dark */
+        .testimonials {
+            background: var(--gradient-dark);
+            position: relative;
+        }
+
+        .testimonials::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(255, 107, 53, 0.05) 0%, rgba(0, 0, 0, 0.3) 100%);
+        }
+
+        .testimonials .section-title h2,
+        .testimonials .section-title p {
+            color: var(--text);
+        }
+
+        .testimonials-container {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .testimonial-slide {
+            background: rgba(255, 107, 53, 0.08);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 107, 53, 0.2);
+            border-radius: var(--border-radius);
+            padding: 40px;
+            box-shadow: var(--shadow-lg);
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .testimonial-slide:hover {
+            transform: translateY(-4px);
+            background: rgba(255, 107, 53, 0.12);
+            border-color: rgba(255, 107, 53, 0.3);
+        }
+
+        .testimonial-text {
+            font-size: 1.1rem;
+            font-style: normal;
+            margin-bottom: 24px;
+            color: var(--text-light);
+            position: relative;
+            line-height: 1.7;
+        }
+
+        .testimonial-text::before {
+            content: '"';
+            font-size: 4rem;
+            color: var(--primary);
+            opacity: 0.3;
+            position: absolute;
+            top: -20px;
+            left: -10px;
+            font-family: serif;
+            line-height: 1;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+        }
+
+        .author-avatar {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 2px solid rgba(255, 107, 53, 0.3);
+        }
+
+        .author-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .author-info h4 {
+            font-size: 1.1rem;
+            color: var(--text);
+            font-weight: 600;
+            text-align: left;
+        }
+
+        .author-info p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            text-align: left;
+        }
+
+        /* Enhanced Contact Section - Dark */
+        .contact {
+            background: var(--bg-secondary);
+        }
+
+        .contact-container {
+            display: flex;
+            gap: 60px;
+            align-items: flex-start;
+        }
+
+        .contact-info {
+            flex: 1;
+        }
+
+        .contact-info h3 {
+            font-size: 1.9rem;
+            margin-bottom: 20px;
+            color: var(--text);
+            font-weight: 700;
+            letter-spacing: -0.3px;
+        }
+
+        .contact-info p {
+            margin-bottom: 32px;
+            color: var(--text-light);
+            font-size: 1.05rem;
+            line-height: 1.7;
+        }
+
+        .contact-details {
+            margin-bottom: 40px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 20px;
+            padding: 16px;
+            background: var(--bg-tertiary);
+            border-radius: var(--border-radius);
+            transition: var(--transition);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .contact-item:hover {
+            transform: translateX(4px);
+            background: var(--primary-light);
+            border-color: var(--primary);
+        }
+
+        .contact-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--gradient);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .contact-text h4 {
+            font-size: 0.95rem;
+            color: var(--text);
+            margin-bottom: 4px;
+            font-weight: 600;
+        }
+
+        .contact-text p {
+            margin: 0;
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        .contact-form {
+            flex: 1;
+            background: var(--bg-card);
+            padding: 32px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--text);
+            font-size: 0.9rem;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 16px;
+            background: var(--bg-tertiary);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
+            transition: var(--transition);
+            color: var(--text);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.1);
+            background: var(--bg-secondary);
+        }
+
+        .form-control::placeholder {
+            color: var(--text-secondary);
+        }
+
+        textarea.form-control {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        select.form-control {
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%239CA3AF' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 12px center;
+            background-size: 16px;
+            padding-right: 40px;
+        }
+
+        /* Enhanced Footer - Dark */
+        footer {
+            background: var(--secondary-dark);
+            color: var(--text);
+            padding: 80px 0 40px;
+            position: relative;
+            border-top: 1px solid rgba(255, 107, 53, 0.2);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .footer-column h3 {
+            font-size: 1.1rem;
+            margin-bottom: 24px;
+            position: relative;
+            padding-bottom: 12px;
+            font-weight: 600;
+            color: var(--text);
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            width: 32px;
+            height: 2px;
+            background: var(--gradient);
+            bottom: 0;
+            left: 0;
+            border-radius: 2px;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            transition: var(--transition);
+            font-size: 0.9rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+            padding-left: 4px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 12px;
+            margin-top: 24px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            color: var(--text);
+            text-decoration: none;
+            transition: var(--transition);
+            font-size: 1rem;
+        }
+
+        .social-links a:hover {
+            background: var(--primary);
+            transform: translateY(-2px);
+            color: white;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* Enhanced Modal - Dark */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(8px);
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+        }
+
+        .modal-content {
+            background: var(--bg-card);
+            border-radius: var(--border-radius);
+            padding: 40px;
+            width: 90%;
+            max-width: 600px;
+            position: relative;
+            animation: modalFadeIn 0.3s ease-out;
+            box-shadow: var(--shadow-xl);
+            border: 1px solid rgba(255, 107, 53, 0.2);
+        }
+
+        @keyframes modalFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px) scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .modal-content h2 {
+            color: var(--primary);
+            margin-top: 0;
+            margin-bottom: 16px;
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+
+        .modal-content p {
+            color: var(--text-light);
+            margin-bottom: 24px;
+            line-height: 1.6;
+            font-size: 1.05rem;
+        }
+
+        .modal-content ul {
+            padding-left: 0;
+            list-style: none;
+            margin: 24px 0;
+        }
+
+        .modal-content li {
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text);
+            font-weight: 500;
+            position: relative;
+            padding-left: 28px;
+            font-size: 0.95rem;
+        }
+
+        .modal-content li:last-child {
+            border-bottom: none;
+        }
+
+        .modal-content li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 16px;
+            width: 8px;
+            height: 8px;
+            background: var(--primary);
+            border-radius: 50%;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            font-size: 24px;
+            color: var(--text-light);
+            cursor: pointer;
+            transition: var(--transition);
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            background: var(--bg-tertiary);
+        }
+
+        .close-btn:hover {
+            color: var(--primary);
+            background: var(--primary-light);
+        }
+
+        /* Enhanced WhatsApp Button */
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 24px;
+            right: 24px;
+            background: linear-gradient(135deg, #25D366, #128C7E);
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            text-decoration: none !important;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.3);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            transition: var(--transition);
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 24px rgba(37, 211, 102, 0.4);
+        }
+
+        .whatsapp-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, #25D366, #128C7E);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            font-size: 0.9rem;
+            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.2);
+        }
+
+        .whatsapp-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(37, 211, 102, 0.3);
+            gap: 12px;
+        }
+
+        /* Newsletter Form - Dark */
+        .newsletter-form {
+            margin-top: 16px;
+        }
+
+        .newsletter-form .form-group {
+            margin-bottom: 12px;
+        }
+
+        .newsletter-form .form-control {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.2);
+            color: var(--text);
+        }
+
+        .newsletter-form .form-control::placeholder {
+            color: var(--text-secondary);
+        }
+
+        .newsletter-form .btn {
+            width: 100%;
+            justify-content: center;
+        }
+
+        /* Enhanced Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .slide-in-left {
+            opacity: 0;
+            transform: translateX(-30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .slide-in-left.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .slide-in-right {
+            opacity: 0;
+            transform: translateX(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .slide-in-right.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 1200px) {
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2.2rem;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .about-content,
+            .contact-container {
+                flex-direction: column;
+            }
+            
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .hero h1 {
+                font-size: 2.4rem;
+            }
+            
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--bg-card);
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: var(--shadow-lg);
+                z-index: 999;
+                border-top: 1px solid rgba(255, 107, 53, 0.2);
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .mobile-menu {
+                display: block;
+            }
+            
+            .nav-cta {
+                display: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .stats {
+                grid-template-columns: 1fr;
+            }
+            
+            .whatsapp-float {
+                width: 56px;
+                height: 56px;
+                bottom: 20px;
+                right: 20px;
+                font-size: 22px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero {
+                padding: 160px 0 80px;
+            }
+            
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .testimonial-slide {
+                padding: 24px;
+            }
+            
+            .modal-content {
+                padding: 24px;
+            }
+            
+            section {
+                padding: 80px 0;
+            }
+        }
+
+        /* Utility Classes */
+        .text-gradient {
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .card {
+            background: var(--bg-card);
+            border-radius: var(--border-radius);
+            padding: 24px;
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg-secondary);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary);
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--primary-dark);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Enhanced Header -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="#home" class="logo">
+                    <div class="logo-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <span>Mr.Stor</span>
+                </a>
+                <div class="nav-links">
+                    <a href="#home">Home</a>
+                    <a href="#about">About</a>
+                    <a href="#services">Services</a>
+                    <a href="#testimonials">Testimonials</a>
+                    <a href="#contact">Contact</a>
+                </div>
+                <a href="#contact" class="nav-cta">Get Quote</a>
+                <div class="mobile-menu">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Enhanced Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <i class="fas fa-rocket"></i>
+                    Premium Tech Solutions
+                </div>
+                <h1>Expert Technology Solutions & Digital Consulting</h1>
+                <p>We deliver cutting-edge technology services with precision and professionalism. From hardware repairs to custom software development, our certified experts ensure optimal performance for your business.</p>
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn btn-accent">
+                        <i class="fas fa-calendar-check"></i>
+                        Schedule Consultation
+                    </a>
+                    <a href="#services" class="btn btn-secondary">
+                        <i class="fas fa-list"></i>
+                        View Services
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Enhanced About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>About Our Expertise</h2>
+                <p>With a decade of experience in technology solutions, we combine technical excellence with strategic insight to drive business success.</p>
+            </div>
+            <div class="about-content">
+                <div class="about-text slide-in-left">
+                    <h3>Strategic Technology Partnership</h3>
+                    <p>At Mr.Stor, we understand that technology is the backbone of modern business operations. Our approach combines technical expertise with strategic business understanding.</p>
+                    <p>Our team of certified professionals stays current with emerging technologies and industry best practices, ensuring your systems operate at peak efficiency and security.</p>
+
+                    <div class="stats">
+                        <div class="stat-item">
+                            <span class="stat-number">10+</span>
+                            <span class="stat-label">Years Experience</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">98%</span>
+                            <span class="stat-label">Client Satisfaction</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">24/7</span>
+                            <span class="stat-label">Technical Support</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">30 min</span>
+                            <span class="stat-label">Average Response</span>
+                        </div>
+                    </div>
+
+                    <a href="#contact" class="btn">
+                        <i class="fas fa-handshake"></i>
+                        Start Partnership
+                    </a>
+                </div>
+                <div class="about-image slide-in-right">
+                    <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+                        alt="Professional Tech Services">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Enhanced Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Professional Services</h2>
+                <p>Comprehensive technology solutions designed to enhance your business operations and digital presence.</p>
+            </div>
+
+            <div class="services-grid">
+                <div class="service-card fade-in">
+                    <div class="service-icon"><i class="fas fa-microchip"></i></div>
+                    <h3>Hardware Solutions</h3>
+                    <p>Professional hardware diagnostics, repair, and optimization using genuine components and industry-standard practices.</p>
+                    <a href="#" class="service-link" data-modal="hardware">
+                        View Details
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <div class="service-card fade-in">
+                    <div class="service-icon"><i class="fas fa-code"></i></div>
+                    <h3>Full-Stack Development</h3>
+                    <p>Custom web applications and software solutions built with modern frameworks and scalable architecture.</p>
+                    <a href="#" class="service-link" data-modal="web-development">
+                        View Details
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <div class="service-card fade-in">
+                    <div class="service-icon"><i class="fab fa-wordpress"></i></div>
+                    <h3>WordPress Solutions</h3>
+                    <p>Enterprise WordPress development, optimization, and maintenance for high-performance digital platforms.</p>
+                    <a href="#" class="service-link" data-modal="wordpress">
+                        View Details
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <div class="service-card fade-in">
+                    <div class="service-icon"><i class="fas fa-chart-line"></i></div>
+                    <h3>Digital Strategy</h3>
+                    <p>Comprehensive digital marketing strategies and performance optimization to maximize your online presence.</p>
+                    <a href="#" class="service-link" data-modal="consultancy">
+                        View Details
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <div class="service-card fade-in">
+                    <div class="service-icon"><i class="fas fa-database"></i></div>
+                    <h3>Data Management</h3>
+                    <p>Secure data recovery, migration, and management solutions with enterprise-grade security protocols.</p>
+                    <a href="#" class="service-link" data-modal="data">
+                        View Details
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <div class="service-card fade-in">
+                    <div class="service-icon"><i class="fas fa-shopping-cart"></i></div>
+                    <h3>Technology Procurement</h3>
+                    <p>Strategic technology acquisition consulting to optimize your hardware and software investments.</p>
+                    <a href="#" class="service-link" data-modal="buying">
+                        View Details
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Universal Modal -->
+    <div class="modal" id="serviceModal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2 id="modalTitle"></h2>
+            <p id="modalDescription"></p>
+            <ul id="modalList"></ul>
+        </div>
+    </div>
+
+    <!-- Enhanced Testimonials Section -->
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>Client Success Stories</h2>
+                <p>See how we've helped businesses achieve their technology objectives with professional solutions.</p>
+            </div>
+            <div class="testimonials-container">
+                <div class="testimonial-slide fade-in">
+                    <div class="testimonial-text">
+                        Mr.Stor transformed our digital infrastructure with their comprehensive technology solutions. Their team demonstrated exceptional professionalism and technical expertise throughout the project.
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80"
+                                alt="Client Testimonial">
+                        </div>
+                        <div class="author-info">
+                            <h4>Trichy SachuCab</h4>
+                            <p>Transportation Solutions</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Enhanced Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Get in Touch</h2>
+                <p>Ready to discuss your technology needs? Contact our team for a professional consultation.</p>
+            </div>
+            <div class="contact-container">
+                <div class="contact-info slide-in-left">
+                    <h3>Connect With Our Team</h3>
+                    <p>Schedule a consultation with our technology experts to discuss your specific requirements and objectives.</p>
+
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Corporate Office</h4>
+                                <p>Muthayammal Engineering College, Namakkal</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Direct Contact</h4>
+                                <p>+91 70104 28132</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Business Email</h4>
+                                <p>contact@mrstor.in</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fab fa-whatsapp"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>WhatsApp</h4>
+                                <p>+91 70104 28132</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Business Hours</h4>
+                                <p>Mon-Fri: 9:00 AM - 6:00 PM IST</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="https://wa.me/917010428132" class="whatsapp-btn" target="_blank">
+                        <i class="fab fa-whatsapp"></i>
+                        Schedule WhatsApp Call
+                    </a>
+
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="https://wa.me/917010428132" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+
+                <div class="contact-form slide-in-right">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" class="form-control" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" class="form-control" placeholder="business@email.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" class="form-control" placeholder="+91 98765 43210">
+                        </div>
+                        <div class="form-group">
+                            <label for="company">Company Name</label>
+                            <input type="text" id="company" class="form-control" placeholder="Your Company">
+                        </div>
+                        <div class="form-group">
+                            <label for="service">Service Required</label>
+                            <select id="service" class="form-control" required>
+                                <option value="">Select Service Category</option>
+                                <option value="hardware">Hardware Solutions</option>
+                                <option value="software">Software Development</option>
+                                <option value="web-development">Web Development</option>
+                                <option value="wordpress">WordPress Solutions</option>
+                                <option value="consultancy">Digital Strategy</option>
+                                <option value="data">Data Management</option>
+                                <option value="buying">Technology Procurement</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Project Requirements</label>
+                            <textarea id="message" class="form-control" placeholder="Describe your technology needs and objectives..."
+                                required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-accent" style="width: 100%; justify-content: center;">
+                            <i class="fab fa-whatsapp"></i>
+                            Send Business Inquiry
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Enhanced Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Mr.Stor Technologies</h3>
+                    <p style="color: var(--text-light); font-size: 0.9rem; line-height: 1.6;">
+                        Professional technology solutions provider specializing in hardware services, software development, and digital strategy consulting.
+                    </p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#testimonials">Case Studies</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="#" data-modal="hardware">Hardware Solutions</a></li>
+                        <li><a href="#" data-modal="web-development">Full-Stack Development</a></li>
+                        <li><a href="#" data-modal="wordpress">WordPress Solutions</a></li>
+                        <li><a href="#" data-modal="consultancy">Digital Strategy</a></li>
+                        <li><a href="#" data-modal="buying">Technology Procurement</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Business Updates</h3>
+                    <p style="color: var(--text-light); font-size: 0.9rem; margin-bottom: 16px;">
+                        Subscribe to our newsletter for industry insights and technology updates.
+                    </p>
+                    <form class="newsletter-form">
+                        <div class="form-group">
+                            <input type="email" class="form-control" placeholder="business@email.com" required>
+                        </div>
+                        <button type="submit" class="btn" style="width: 100%; justify-content: center; font-size: 0.9rem;">
+                            <i class="fas fa-paper-plane"></i>
+                            Subscribe
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <a href="https://wa.me/917010428132?text=Hello%20Mr.Stor,%20I%20would%20like%20to%20discuss%20a%20technology%20project."
+                class="whatsapp-float" target="_blank">
+                <i class="fab fa-whatsapp"></i>
+            </a>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 Mr.Stor Technologies. All Rights Reserved. | Professional Technology Solutions</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Enhanced Mobile Menu Toggle
+        document.querySelector('.mobile-menu').addEventListener('click', function () {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.classList.toggle('active');
+            this.querySelector('i').classList.toggle('fa-bars');
+            this.querySelector('i').classList.toggle('fa-times');
+        });
+
+        // Enhanced Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+
+                    // Close mobile menu after clicking a link
+                    if (window.innerWidth <= 992) {
+                        document.querySelector('.nav-links').classList.remove('active');
+                        document.querySelector('.mobile-menu i').classList.add('fa-bars');
+                        document.querySelector('.mobile-menu i').classList.remove('fa-times');
+                    }
+                }
+            });
+        });
+
+        // Enhanced Scroll Animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Enhanced Sticky Header
+        window.addEventListener('scroll', function () {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Enhanced Modal Functionality
+        const modal = document.getElementById("serviceModal");
+        const modalTitle = document.getElementById("modalTitle");
+        const modalDesc = document.getElementById("modalDescription");
+        const modalList = document.getElementById("modalList");
+        const closeBtn = document.querySelector(".close-btn");
+
+        const serviceDetails = {
+            hardware: {
+                title: "Hardware Solutions",
+                desc: "Comprehensive hardware diagnostics, repair, and optimization services using genuine components and industry-standard practices.",
+                list: ["Professional Diagnostics & Testing", "Genuine Component Replacement", "Performance Optimization", "Preventive Maintenance", "Warranty Services", "Enterprise Hardware Support"]
+            },
+            "web-development": {
+                title: "Full-Stack Development",
+                desc: "Custom web applications and software solutions built with modern frameworks, scalable architecture, and enterprise-grade security.",
+                list: ["Custom Web Application Development", "API Development & Integration", "Progressive Web Apps (PWA)", "Cloud-Native Solutions", "Performance Optimization", "Security Implementation", "Ongoing Maintenance & Support"]
+            },
+            "wordpress": {
+                title: "WordPress Solutions",
+                desc: "Enterprise-grade WordPress development, optimization, and maintenance for high-performance digital platforms.",
+                list: ["Custom Theme Development", "Plugin Development & Customization", "WooCommerce Solutions", "Performance Optimization", "Security Hardening", "Migration & Maintenance", "Scalable Architecture"]
+            },
+            consultancy: {
+                title: "Digital Strategy",
+                desc: "Comprehensive digital marketing strategies and performance optimization to maximize your online presence and business growth.",
+                list: ["Digital Transformation Strategy", "Performance Marketing", "SEO Optimization", "Content Strategy", "Analytics & Reporting", "Conversion Optimization"]
+            },
+            data: {
+                title: "Data Management",
+                desc: "Secure data recovery, migration, and management solutions with enterprise-grade security protocols and compliance standards.",
+                list: ["Data Recovery Services", "Secure Data Migration", "Database Management", "Backup Solutions", "Compliance & Security", "Disaster Recovery Planning"]
+            },
+            buying: {
+                title: "Technology Procurement",
+                desc: "Strategic technology acquisition consulting to optimize your hardware and software investments for maximum ROI.",
+                list: ["Technology Needs Assessment", "Vendor Evaluation & Selection", "Total Cost of Ownership Analysis", "Implementation Planning", "Performance Benchmarking", "Ongoing Support Strategy"]
+            }
+        };
+
+        // Open modal
+        document.querySelectorAll(".service-link, .footer-links a[data-modal]").forEach(link => {
+            link.addEventListener("click", e => {
+                e.preventDefault();
+                const key = link.dataset.modal;
+                const service = serviceDetails[key];
+
+                if (service) {
+                    modalTitle.textContent = service.title;
+                    modalDesc.textContent = service.desc;
+                    modalList.innerHTML = service.list.map(item => `<li>${item}</li>`).join("");
+
+                    modal.style.display = "flex";
+                    document.body.style.overflow = "hidden";
+                }
+            });
+        });
+
+        // Close modal
+        closeBtn.addEventListener("click", () => {
+            modal.style.display = "none";
+            document.body.style.overflow = "auto";
+        });
+
+        window.addEventListener("click", e => {
+            if (e.target === modal) {
+                modal.style.display = "none";
+                document.body.style.overflow = "auto";
+            }
+        });
+
+        // Enhanced Form Submission - Send to WhatsApp (UPDATED NUMBER)
+        document.getElementById('contactForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            // Get form values
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const company = document.getElementById('company').value;
+            const service = document.getElementById('service').value;
+            const message = document.getElementById('message').value;
+
+            // Get service text for display
+            const serviceText = document.getElementById('service').options[document.getElementById('service').selectedIndex].text;
+
+            // Create professional WhatsApp message
+            let whatsappMessage = `*Business Inquiry - Mr.Stor Technologies*\n\n`;
+            whatsappMessage += `👤 *Contact Person:* ${name}\n`;
+            if (company) whatsappMessage += `🏢 *Company:* ${company}\n`;
+            whatsappMessage += `📧 *Email:* ${email}\n`;
+            if (phone) whatsappMessage += `📱 *Phone:* ${phone}\n\n`;
+            whatsappMessage += `📋 *Service Required:* ${serviceText}\n\n`;
+            whatsappMessage += `📝 *Project Requirements:*\n${message}\n\n`;
+            whatsappMessage += `---\n_Submitted via Mr.Stor Website_`;
+
+            // Encode for URL
+            const encodedMessage = encodeURIComponent(whatsappMessage);
+            const whatsappUrl = `https://wa.me/917010428132?text=${encodedMessage}`;
+
+            // Open WhatsApp in new tab
+            window.open(whatsappUrl, '_blank');
+
+            // Show success feedback
+            this.reset();
+            setTimeout(() => {
+                alert('Thank you for your inquiry. We will contact you shortly to discuss your project requirements.');
+            }, 300);
+        });
+
+        // Newsletter form handling
+        document.querySelector('.newsletter-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const email = this.querySelector('input[type="email"]').value;
+            alert(`Thank you for subscribing with ${email}. You will receive our next business update shortly.`);
+            this.reset();
+        });
+
+        // Initialize header state
+        window.dispatchEvent(new Event('scroll'));
+    </script>
+</body>
+</html>
